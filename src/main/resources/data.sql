@@ -1,0 +1,1 @@
+-- Optional initial data. Leave empty or add hashed passwords if you want a seeded user.

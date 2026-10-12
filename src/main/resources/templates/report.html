@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Monthly Report</title></head>
+<body>
+<h2>Monthly Report</h2>
+<p><a th:href="@{/}">Dashboard</a></p>
+<form th:action="@{/reports}" method="post">
+  <label>Year: <input type="number" name="year" th:value="${year}"/></label>
+  <label>Month: <input type="number" name="month" min="1" max="12" th:value="${month}"/></label>
+  <button type="submit">Generate</button>
+</form>
+
+<div th:if="${report != null}">
+  <h3>Summary</h3>
+  <p>Total: <span th:text="${report.total}"></span></p>
+  <h4>By Category</h4>
+  <ul>
+    <li th:each="entry : ${report.byCategory.entrySet()}">
+      <span th:text="${entry.key}"></span> : <span th:text="${entry.value}"></span>
+    </li>
+  </ul>
+
+  <p><a th:href="@{|/reports/csv?year=${year}&month=${month}|}">Download CSV</a></p>
+</div>
+</body>
+</html>

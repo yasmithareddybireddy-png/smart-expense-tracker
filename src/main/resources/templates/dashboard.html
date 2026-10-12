@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Dashboard</title></head>
+<body>
+<h2>Smart Expense Tracker</h2>
+<nav>
+  <a th:href="@{/expenses}">Expenses</a> |
+  <a th:href="@{/incomes}">Incomes</a> |
+  <a th:href="@{/budgets}">Budgets</a> |
+  <a th:href="@{/reports}">Reports</a> |
+  <a th:href="@{/logout}">Logout</a>
+</nav>
+<p>Welcome, <span th:text="${#authentication.name}">user</span></p>
+</body>
+</html>

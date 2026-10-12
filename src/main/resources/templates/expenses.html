@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Expenses</title></head>
+<body>
+<h2>Expenses</h2>
+<p><a th:href="@{/}">Dashboard</a> | <a th:href="@{/expenses/add}">Add Expense</a></p>
+<table border="1">
+  <tr><th>Date</th><th>Category</th><th>Description</th><th>Amount</th><th>Actions</th></tr>
+  <tr th:each="e : ${expenses}">
+    <td th:text="${e.date}"></td>
+    <td th:text="${e.category}"></td>
+    <td th:text="${e.description}"></td>
+    <td th:text="${e.amount}"></td>
+    <td>
+      <a th:href="@{|/expenses/edit/${e.id}|}">Edit</a> |
+      <a th:href="@{|/expenses/delete/${e.id}|}" onclick="return confirm('Delete?')">Delete</a>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
